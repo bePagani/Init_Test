@@ -32,6 +32,7 @@ class LoadPage extends StatelessWidget {
                   ),
                 );
               }
+
               if(Streamsnapshot.connectionState==ConnectionState.active){
                 User user = Streamsnapshot.data;
 
