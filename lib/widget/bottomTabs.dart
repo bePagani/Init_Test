@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class BottomTabs extends StatefulWidget {
@@ -61,7 +62,7 @@ class _BottomTabsState extends State<BottomTabs> {
             iconSeting: "assets/images/logoutIcon.png",
             selected: _selectedbtn ==3  ? true:false,
             onPressed: (){
-
+              FirebaseAuth.instance.signOut();
             },
           ),
 

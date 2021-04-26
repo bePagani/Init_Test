@@ -7,7 +7,7 @@ import 'package:flutter_app/tabs/searchTab.dart';
 import 'package:flutter_app/widget/bottomTabs.dart';
 
 class HomePage extends StatefulWidget {
-
+  FirebaseAuth firebaseAuth = FirebaseAuth.instance;
   @override
   _HomePageState createState() => _HomePageState();
 }
