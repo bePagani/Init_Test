@@ -23,13 +23,15 @@ class _ProductPageState extends State<ProductPage> {
 
   User _user = FirebaseAuth.instance.currentUser;
   String _selectedConfig = "0";
+  String _price = "0";
 
   Future _setCart(){
     return _users.doc(_user.uid).
     collection("Cart").
     doc(widget.productId).
     set({
-        "Config" : _selectedConfig
+        "Config" : _selectedConfig,
+      "price": _price,
     }
     );
   }
@@ -52,7 +54,9 @@ class _ProductPageState extends State<ProductPage> {
              Map<String, dynamic> docData = snapshot.data.data();
              List imageList = docData['images'];
              List configs = docData['size'];
+             int price = docData['price'];
              _selectedConfig = configs[0];
+
 
 
              return ListView(
@@ -81,7 +85,7 @@ class _ProductPageState extends State<ProductPage> {
                    style: TextStyle(
                      fontSize: 18,
                      color: Theme.of(context).accentColor,
-                     fontWeight: FontWeight.w600
+                     fontWeight: FontWeight.w600,
                    ),
                    ),
                  ),
@@ -111,6 +115,7 @@ class _ProductPageState extends State<ProductPage> {
                   onSelected: (size){
                     _selectedConfig = size;
                   },
+
 
                 ),
                  Padding(

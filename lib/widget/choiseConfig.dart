@@ -3,15 +3,17 @@ import 'package:flutter/material.dart';
 class ChoiseConfig extends StatefulWidget {
 
 final List configs;
+final int prices;
 final Function(String) onSelected;
 
-ChoiseConfig({this.configs, this.onSelected});
+ChoiseConfig({this.configs, this.onSelected,this.prices});
   @override
   _ChoiseConfigState createState() => _ChoiseConfigState();
 }
 
 class _ChoiseConfigState extends State<ChoiseConfig> {
 int _selected = 0;
+int _prices = 0;
   @override
   Widget build(BuildContext context) {
     return  Padding(

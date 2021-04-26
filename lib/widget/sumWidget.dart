@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/firebase_services.dart';
+import 'package:flutter_app/widget/buttonInit.dart';
 
 class SumWidget extends StatefulWidget {
   @override
@@ -6,6 +8,7 @@ class SumWidget extends StatefulWidget {
 }
 
 class _SumWidgetState extends State<SumWidget> {
+  FirebaseServices _firebaseServices = FirebaseServices();
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -20,12 +23,9 @@ class _SumWidgetState extends State<SumWidget> {
       child:  Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
+          ButtonCus(
 
-          RaisedButton(color: Colors.black,
-              onPressed: (){
-
-
-          })
+          )
         ],
       ),
     );
