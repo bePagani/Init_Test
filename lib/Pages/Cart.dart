@@ -16,6 +16,8 @@ class Cart extends StatefulWidget {
 
 class _CartState extends State<Cart> {
   FirebaseServices _firebaseServices = FirebaseServices();
+  final CollectionReference _cart = FirebaseFirestore.instance.collection('Cart');
+  final CollectionReference _users = FirebaseFirestore.instance.collection("Users");
 
   @override
   Widget build(BuildContext context) {
@@ -188,12 +190,7 @@ class _CartState extends State<Cart> {
       bottomNavigationBar:  Container(
         height: 75,
         color: Colors.white,
-        child: Row(
-          children: [
-
-            ]
-
-        ),
+       
       ),
     );
   }
