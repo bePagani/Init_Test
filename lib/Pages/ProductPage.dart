@@ -23,18 +23,9 @@ class _ProductPageState extends State<ProductPage> {
 
   User _user = FirebaseAuth.instance.currentUser;
   String _selectedConfig = "0";
-  String _price = "0";
+  String _price = "o";
 
-  Future _setCart(){
-    return _users.doc(_user.uid).
-    collection("Cart").
-    doc(widget.productId).
-    set({
-        "Config" : _selectedConfig,
-      "price": _price,
-    }
-    );
-  }
+
   final SnackBar _snackBar = SnackBar(content: Text("Добавлено в корзину"));
   @override
   Widget build(BuildContext context) {
@@ -57,7 +48,16 @@ class _ProductPageState extends State<ProductPage> {
              int price = docData['price'];
              _selectedConfig = configs[0];
 
-
+             Future _setCart(){
+                _users.doc(_user.uid).
+               collection("Cart").
+               doc(widget.productId).
+               set({
+                 "Config" : _selectedConfig,
+                 'price':docData['price'],
+               }
+               );
+             }
 
              return ListView(
                padding: EdgeInsets.all(0),
@@ -179,7 +179,8 @@ class _ProductPageState extends State<ProductPage> {
            );
          },
 
-       ),        CustomActionBar(
+       ),
+          CustomActionBar(
           Arrows: true,
             wastitle: false,
             wasBackg: false,

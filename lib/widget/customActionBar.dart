@@ -15,8 +15,7 @@ CustomActionBar({this.title,this.Arrows,this.wastitle,this.wasBackg});
     bool _arrows= Arrows ?? false;
     bool _wastitle= wastitle ?? true;
     bool _wasBack=wasBackg ?? true;
-    final CollectionReference _users= FirebaseFirestore.instance.collection("Users",
-    );
+    final CollectionReference _users= FirebaseFirestore.instance.collection("Users",);
     User _user = FirebaseAuth.instance.currentUser;
     return Container(
       decoration: BoxDecoration(
@@ -29,7 +28,7 @@ CustomActionBar({this.title,this.Arrows,this.wastitle,this.wasBackg});
         ):null
       ),
       padding: EdgeInsets.only(
-          top: 42,
+          top: 50,
       left: 24,
       right: 24,
       bottom: 24),
@@ -68,8 +67,8 @@ CustomActionBar({this.title,this.Arrows,this.wastitle,this.wasBackg});
 
           GestureDetector(
             onTap:() {
-    Navigator.push(context, MaterialPageRoute(
-    builder: (context)=>Cart(),));
+              Navigator.push(context, MaterialPageRoute(
+                builder: (context)=>Cart(),));
     },
             child: Container(
               width: 42,
@@ -88,7 +87,6 @@ CustomActionBar({this.title,this.Arrows,this.wastitle,this.wasBackg});
                     List _docs = snapshot.data.docs;
                     _totalItem = _docs.length;
                   }
-
                   return Text(
                     "$_totalItem" ?? "0",
                     style: TextStyle(
@@ -98,6 +96,7 @@ CustomActionBar({this.title,this.Arrows,this.wastitle,this.wasBackg});
                     ),
                   );
                 },
+
               )
             ),
           )

@@ -1,6 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app/widget/bottomTabs.dart';
+import 'package:flutter_app/widget/buttonInit.dart';
 import 'package:flutter_app/widget/customActionBar.dart';
+import 'package:flutter_app/widget/sumWidget.dart';
 
 import '../firebase_services.dart';
 import 'ProductPage.dart';
@@ -11,7 +15,6 @@ class Cart extends StatefulWidget {
 }
 
 class _CartState extends State<Cart> {
-
   FirebaseServices _firebaseServices = FirebaseServices();
 
   @override
@@ -36,8 +39,8 @@ class _CartState extends State<Cart> {
                 // Display the data inside a list view
                 return ListView(
                   padding: EdgeInsets.only(
-                    top: 108.0,
-                    bottom: 12.0,
+                    top: 100.0,
+                    bottom: 50.0,
                   ),
                   children: snapshot.data.docs.map((document) {
                     return GestureDetector(
@@ -124,7 +127,12 @@ class _CartState extends State<Cart> {
                                         ),
                                       ],
                                     ),
+
                                   ),
+
+                                  // Место для конпки добавление и удаление товаров
+
+
                                 ],
                               ),
                             );
@@ -136,18 +144,37 @@ class _CartState extends State<Cart> {
                               child: CircularProgressIndicator(),
                             ),
                           );
+
                         },
                       ),
                     );
+
+
                   }).toList(),
                 );
               }
 
               // Loading State
+              Row(
+                children: [
+                  Container(
+                    padding: EdgeInsets.all(26),
+                    color: Colors.black,
+                    height: 60,
+                      width: 60,
+                  )
+                ],
+              );
+              Container(
+                color: Colors.black,
+                width: 25,
+                height: 26,
+              );
               return Scaffold(
                 body: Center(
                   child: CircularProgressIndicator(),
                 ),
+
               );
             },
           ),
@@ -155,7 +182,18 @@ class _CartState extends State<Cart> {
             Arrows: true,
             title: "Cart",
           )
+
         ],
+      ),
+      bottomNavigationBar:  Container(
+        height: 75,
+        color: Colors.white,
+        child: Row(
+          children: [
+
+            ]
+
+        ),
       ),
     );
   }

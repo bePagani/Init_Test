@@ -17,5 +17,7 @@ class FirebaseServices {
   final CollectionReference usersRef = FirebaseFirestore
       .instance
       .collection("Users");
+  final CollectionReference cartRef = FirebaseFirestore.instance.collection("Cart");
 
 }
+
